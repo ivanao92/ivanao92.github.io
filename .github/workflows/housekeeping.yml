@@ -1,0 +1,19 @@
+name: Cleanup Old Deployments
+
+on:
+  deployment_status:
+
+jobs:
+  clean-up:
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old deployments
+        uses: marketplace/actions/delete-old-deployments@v3.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.repository }}
+          # This keeps only the most recent deployment
+          keep_limit: 1
+          # Optional: remove the deployment from the GitHub UI completely
+          delete_deployment: true
