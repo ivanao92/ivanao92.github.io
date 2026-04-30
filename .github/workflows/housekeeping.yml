@@ -1,3 +1,7 @@
+permissions:
+  deployments: write
+  contents: read
+
 name: Cleanup Old Deployments
 
 on:
