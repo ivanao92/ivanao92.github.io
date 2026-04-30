@@ -1,0 +1,21 @@
+{
+"1940s Radio Station": "http://uk3.internet-radio.com:8082/live",
+"Vintage Broadcast": "http://176.31.244.83:8724/listen.pls?sid=1",
+"Galaxy News Radio (Fallout 3)": "http://fallout.fm:8000/falloutfm2.ogg",
+"Radio New Vegas (Fallout New Vegas)": "http://fallout.fm:8000/falloutfm3.ogg",
+"Diamond City Radio (Fallout 4)": "http://fallout.fm:8000/falloutfm6.ogg",
+"Classical Radio (Fallout 4)": "http://fallout.fm:8000/falloutfm7.ogg",
+"More Where That Came From (Fallout 4)": "http://fallout.fm:8000/falloutfm8.ogg",
+"Classical (Fallout 76)": "http://fallout.fm:8000/falloutfm9.ogg",
+"General (Fallout 76)": "http://fallout.fm:8000/falloutfm10.ogg",
+"Fallout 2 OST": "http://fallout.fm:8000/falloutfm4.ogg",
+"Fallout 1 OST": "http://fallout.fm:8000/falloutfm5.ogg",
+"Fallout.FM Main Station": "http://fallout.fm:8000/falloutfm1.ogg",
+"Best Smooth Jazz": "http://64.95.243.43:8002/listen.pls?sid=1",
+"Listen128 (Lounge Radio)": "http://nl1.streamhosting.ch:80",
+"Majestic Jukebox Radio": "http://uk3.internet-radio.com:8405/live.m3u",
+"Lo-Fi Radio (Android App) HQ": "http://static.105.104.99.88.clients.your-server.de:8000/hq.m3u",
+"Lo-Fi Radio (Android App) SQ": "http://static.105.104.99.88.clients.your-server.de:8000/default.m3u",
+"Lo-Fi Radio (Android App) LoFi": "http://static.105.104.99.88.clients.your-server.de:8000/lofi.m3u",
+"USSR 50-70": "https://pub0302.101.ru:8000/stream/pro/aac/64/47"
+}

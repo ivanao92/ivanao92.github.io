@@ -1,0 +1,635 @@
+:root {
+  --green:            rgb(60, 240, 0);
+  --green-75:         rgb(60, 240, 0, 0.75);
+  --green-50:         rgb(60, 240, 0, 0.50);
+  --green-25:         rgb(60, 240, 0, 0.25);
+  --green-15:         rgb(60, 240, 0, 0.15);
+  --green-full:       rgb(0, 255, 0, 0.75);
+  --green-half:       rgb(0, 255, 0, 0.5);
+  --orange-125:       rgba(255, 63, 0, 0.125);
+  --orange-25:        rgba(255, 63, 0, 0.25);
+  --black-shadow:     rgb(0, 0, 0, 0.75);
+  /* CRT filter applied to the Leaflet map container */
+  --crt-filter: grayscale(100%) brightness(40%) sepia(100%)
+                hue-rotate(50deg) saturate(600%) contrast(0.8);
+}
+
+* { padding: 0; }
+
+body {
+  background-color: black;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overscroll-behavior-y: contain; /* Bloquea el refresh en mobile al scrollear */
+  overflow: hidden;
+}
+
+/* ─── PIP-BOY CHROME ───────────────────────────────────────────────────────── */
+
+#pip-boy {
+  position: absolute;
+  color: white;
+  box-shadow: 0px 0px 128px 64px rgb(0, 255, 0, 0.125);
+  user-select: none;
+}
+
+#background-img {
+  display: block;       /* fix whitespace gap below img */
+  pointer-events: none; /* prevent drag */
+}
+
+/* Main nav buttons */
+.pip-button {
+  height: 24px;
+  width: 120px;
+  left: 50px;
+  position: absolute;
+  border-radius: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+#button-status   { top: 336px; }
+#button-radio    { top: 362px; }
+#button-automaps { top: 390px; }
+#button-archives { top: 417px; }
+#button-close    { top: 444px; }
+
+/* Alarm button sits separately near the clock */
+#button-alarms {
+  left: 125px;
+  top: 14px;
+  height: 22px;
+  width: 26px;
+  border-radius: 2px;
+}
+
+/* ─── MAIN CLOCK ───────────────────────────────────────────────────────────── */
+
+#main-clock {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+  height: 17px;
+  width: 173px;
+  font-family: Arial;
+  font-size: 10pt;
+  font-weight: bold;
+  color: rgb(245, 245, 245, 0.60);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.main-clock-section {
+  text-align: center;
+  box-shadow: inset 0px 0px 8px 0px var(--black-shadow);
+  background-color: black;
+  overflow: hidden;
+}
+
+/* Individual digit — mechanical drum cylinder look */
+.main-clock-digit {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 8px;
+  height: 17px;
+  margin: 0 0.5px;
+  transform: perspective(40px) rotateX(10deg);
+  background: linear-gradient(to bottom, #404040 0%, #2a2a2a 50%, #050505 100%);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.9), inset 0 -1px 1px rgba(0,0,0,0.9);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/*
+ * Drum-roll animation: digit rolls from the "far" face of the drum
+ * (high rotateX) to the readable face-forward position.
+ * Class is added in JS; removed when animation completes (forwards fill).
+ */
+@keyframes drumSpin {
+  0%   { transform: perspective(40px) rotateX(75deg); opacity: 0.2; }
+  50%  { opacity: 1; }
+  100% { transform: perspective(40px) rotateX(10deg); }
+}
+
+.main-clock-digit.drum-spin {
+  animation: drumSpin 180ms cubic-bezier(0.2, 0.8, 0.35, 1.0) forwards;
+}
+
+#day          { height: 100%; width: 19px; left: 0px;   position: absolute; }
+#month        { height: 100%; width: 30px; left: 26px;  position: absolute; }
+#year         { height: 100%; width: 38px; left: 63px;  position: absolute; }
+#hour-minutes { height: 100%; width: 38px; left: 135px; position: absolute; }
+
+/* ─── ALARM NEON ───────────────────────────────────────────────────────────── */
+
+#alarm-neon {
+  width: 110px;
+  height: 22px;
+  left: 83px;
+  top: 14px;
+  position: absolute;
+  overflow: hidden;
+  display: none;
+  pointer-events: none;
+}
+
+#alarm-neon-center {
+  left: 42px; top: 0px; height: 22px; width: 26px;
+  border-radius: 2px;
+  position: absolute;
+  animation: alarmBlinkCenter 0.5s infinite both;
+}
+
+#alarm-neon-left {
+  height: 18px; width: 38px; left: 1px; top: 3px;
+  position: absolute;
+  animation: alarmBlinkLeft 0.5s infinite both;
+}
+
+#alarm-neon-right {
+  height: 18px; width: 38px; left: 72px; top: 3px;
+  position: absolute;
+  animation: alarmBlinkRight 0.5s infinite both;
+}
+
+/* ─── PIP SCREEN ───────────────────────────────────────────────────────────── */
+
+#pip-screen {
+  position: absolute;
+  top: 80px;
+  left: 288px;
+  width: 288px;
+  height: 352px;
+  font-family: Arial;
+  font-size: 10pt;
+  color: var(--green-75);
+  user-select: none;
+  overflow: hidden;
+  filter: blur(0.40px);
+}
+
+#pip-screen-scanlines {
+  position: absolute;
+  left: 243px; top: 32px;
+  width: 385px; height: 438px;
+  filter: blur(0.85px);
+  background-image: url(./img/screen.png);
+  z-index: 98;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Scan-line animation (the rolling green bar) */
+#pip-screen-scanlines-anim {
+  position: absolute;
+  left: 243px;
+  visibility: hidden;
+  background-color: rgba(0, 255, 0, 0.15);
+  height: 48px; width: 386px;
+  z-index: 99;
+  filter: saturate(100%) blur(4px);
+  animation: screenScan 7.00s 5.25s linear infinite;
+  pointer-events: none;
+}
+
+#pip-screen-glass {
+  position: absolute;
+  left: 243px; top: 32px;
+  width: 385px; height: 438px;
+  background-image: url(./img/glass-grunge.png);
+  z-index: 100;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+@keyframes screenScan {
+  0%     { top: 32px;  opacity: 0.0;  background-position-y: 439px; visibility: initial; }
+  6.25%  { opacity: 0.15; }
+  12.5%  { opacity: 0.25; }
+  18.25% { opacity: 0.15; }
+  25%    { top: 420px; opacity: 0.0;  background-position-y: 48px;  visibility: hidden;  }
+}
+
+/* ─── MENUS ────────────────────────────────────────────────────────────────── */
+
+.menu-screen  { display: none; text-align: center; }
+.screen-title { text-align: center; }
+
+.menu-footer {
+  display: block;
+  text-align: center;
+  font-size: 0.85em;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+/* ─── RADIO ────────────────────────────────────────────────────────────────── */
+
+/*
+ * Virtual fixed-window list. The container never scrolls — JS rewrites the
+ * text content of the fixed RADIO_ROWS <li> elements when navigating.
+ * overflow: hidden ensures nothing bleeds out; no scroll-snap needed.
+ */
+#radioList {
+  position: absolute;
+  width: 288px;
+  top: 32px;
+  left: 0px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.radio-item {
+  padding: 8px 0 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+/* Hollow outline indicators — no fill, just a 2px inset ring */
+#selected {
+  outline: 2px solid rgba(60, 240, 0, 0.85);
+  outline-offset: -2px;
+}
+
+#hovered {
+  outline: 2px solid rgba(60, 240, 0, 0.40);
+  outline-offset: -2px;
+}
+
+/* Hide scrollbars globally (scroll still works where needed) */
+::-webkit-scrollbar { display: none; }
+
+#radioStatus {
+  position: absolute;
+  height: 31px; width: 288px;
+  top: 336px; left: 0px;
+  animation: radioStatusBlink 3.5s infinite both;
+  text-align: left;
+}
+
+#radioDecibels {
+  position: absolute;
+  height: 31px; width: 288px;
+  top: calc(336px - 32px);
+  left: calc(0px - 32px);
+  text-align: right;
+  padding: 32px;
+}
+
+/* Metadata ticker — shown/hidden by JS; never rendered until stream info arrives */
+#currentlyPlaying {
+  position: absolute;
+  height: 18px; width: 288px;
+  top: 252px; left: 0px;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 0.82em;
+  opacity: 0.85;
+  display: none;
+}
+
+/*
+ * Scrolling ticker for stream metadata (track/artist from server).
+ * Starts off-screen right, exits off-screen left. Duration set inline
+ * per JS based on text length so all text moves at the same px/s.
+ */
+.meta-ticker {
+  display: inline-block;
+  white-space: nowrap;
+  animation: metaTicker linear infinite;
+}
+
+@keyframes metaTicker {
+  from { transform: translateX(288px);  }   /* enter from right edge */
+  to   { transform: translateX(-100%); }    /* exit past left edge   */
+}
+
+/* Audio element: fully hidden, controlled entirely by JS */
+#playerID { display: none; position: absolute; top: -150px; }
+
+/* ─── AUTOMAPS ─────────────────────────────────────────────────────────────── */
+
+#automaps-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#alarms-geolocation {
+  display: block;
+  width: 100%;
+  font-size: 0.82em;
+  text-align: center;
+  padding: 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Wrapper so zoom buttons can be absolutely positioned over the map */
+#map-container {
+  position: relative;
+  width: 288px;
+  height: 240px;
+  line-height: 0;
+}
+
+/* Leaflet map canvas — CRT filter applied to the whole rendered tile surface */
+#map-canvas {
+  width: 288px;
+  height: 240px;
+  display: block;
+  background-color: #000;
+  filter: var(--crt-filter);
+}
+
+/* Suppress Leaflet's white tile-gap background */
+#map-canvas .leaflet-container { background: #000 !important; }
+
+/* Zoom buttons overlaid on the bottom-right corner of the map */
+#map-zoom-controls {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  line-height: normal;
+  z-index: 10;
+}
+
+.map-zoom {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 2px solid var(--green-50);
+  font-size: large;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.75);
+  user-select: none;
+}
+
+/* ─── ARCHIVES (NOTES) ─────────────────────────────────────────────────────── */
+
+#archives-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 328px;   /* pip-screen height minus screen-title */
+  overflow: hidden;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0 4px;
+}
+
+/* Scrollable note list */
+#notes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.notes-empty {
+  display: block;
+  text-align: center;
+  opacity: 0.45;
+  padding: 20px 0;
+  letter-spacing: 1px;
+}
+
+.note-entry {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--green-15);
+}
+
+.note-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.note-date {
+  font-size: 0.72em;
+  opacity: 0.55;
+  font-family: monospace;
+}
+
+.note-delete {
+  cursor: pointer;
+  opacity: 0.40;
+  font-size: 0.8em;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.note-delete:hover { opacity: 1; }
+
+.note-preview {
+  font-size: 0.85em;
+  word-break: break-word;
+  line-height: 1.35;
+}
+
+/* Note composer — hidden by default, revealed by [+ NEW NOTE] */
+#notes-editor {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  flex-shrink: 0;
+  padding: 4px 0;
+  border-top: 1px solid var(--green-25);
+}
+
+#notes-editor-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  opacity: 0.7;
+  letter-spacing: 1px;
+}
+
+#note-char-count { font-family: monospace; }
+
+#notes-input {
+  width: 100%;
+  height: 72px;
+  background: transparent;
+  border: 1px solid var(--green-50);
+  color: var(--green-75);
+  font-family: monospace;
+  font-size: 0.9em;
+  resize: none;
+  padding: 4px;
+  box-sizing: border-box;
+  outline: none;
+  /* Override pip-boy's user-select: none so typing works */
+  user-select: text;
+  pointer-events: all;
+  cursor: text;
+}
+
+#notes-input::placeholder { opacity: 0.35; }
+
+#notes-editor-btns {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Footer row: [+ NEW NOTE] button + Vault-Tec credit */
+#archives-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  padding: 4px 0 2px;
+  border-top: 1px solid var(--green-15);
+}
+
+.note-btn {
+  cursor: pointer;
+  font-size: 0.82em;
+  letter-spacing: 1px;
+  padding: 2px 6px;
+  display: inline-block;
+  color: var(--green-75);
+}
+
+.note-btn:hover { background-color: var(--green-15); }
+
+/* ─── ALARMS MENU ──────────────────────────────────────────────────────────── */
+
+#alarms-content {
+  overflow-y: auto;
+  width: 100%;
+  height: 100%;
+}
+
+#alarm-activate {
+  background-color: var(--green-50);
+  color: black;
+  padding: 4px 16px;
+  cursor: pointer;
+}
+
+#sunrise-sunset-bar-svg { margin: 2px 0 -1px 0; }
+#sunrise-sunset          { height: auto; }
+#sunrise-sunset-strings  { width: 100%; }
+
+#sunrise {
+  position: relative; left: -26px;
+  background-color: var(--green-half); color: black; padding: 2px 8px;
+}
+#now {
+  background-color: var(--green-full); color: black; padding: 2px 8px;
+}
+#sunset {
+  position: relative; right: -26px; width: 100%;
+  background-color: var(--green-half); color: black; padding: 2px 8px;
+}
+
+/* ─── ANIMATIONS ───────────────────────────────────────────────────────────── */
+
+@keyframes radioStatusBlink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75%      { opacity: 0; }
+}
+
+@keyframes alarmBlinkCenter {
+  0%   { box-shadow: inset 0px 0px 2px 2px rgba(255, 63, 0, 0.20); }
+  100% { box-shadow: inset 0px 0px 2px 2px rgba(255, 63, 0, 0.40); }
+}
+
+@keyframes alarmBlinkLeft {
+  0%   { box-shadow: inset -10px 0px 2px 0px var(--orange-125); }
+  100% { box-shadow: inset -10px 0px 2px 0px var(--orange-25);  }
+}
+
+@keyframes alarmBlinkRight {
+  0%   { box-shadow: inset 10px 0px 8px 0px var(--orange-125); }
+  100% { box-shadow: inset 10px 0px 8px 0px var(--orange-25);  }
+}
+
+/* Válvulas: fade-out on startup */
+#tubes {
+  position: absolute;
+  height: 130px; width: 216px; left: 4px; top: 184px;
+  border-radius: 5px;
+  filter: grayscale(100%);
+  background-image: url('./img/back.png');
+  background-position: -4px -184px;
+  animation: tubesAnim 10s ease-in forwards;
+}
+
+@keyframes tubesAnim {
+  0%   { opacity: 0.75; }
+  100% { opacity: 0.0;  }
+}
+
+/* ─── SHARED HELPERS ───────────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5 { margin: 0; padding: 8px; }
+
+#tubes { display: none; }
+
+/* ─── RESPONSIVE ───────────────────────────────────────────────────────────── */
+
+@media (min-width: 540px) {
+  #pc-background     { display: inline; }
+  #mobile-background { display: none;   }
+}
+
+@media (max-width: 540px) and (orientation: portrait) {
+  #pc-background     { display: none;   }
+  #mobile-background { display: inline; }
+
+  #mobile-background {
+    position: fixed; left: 0; top: 0;
+    width: 100%; height: 100%;
+    border: solid;
+    border-image-slice: 15%;
+    border-image-repeat: stretch;
+    border-image-width: 64px;
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+  }
+
+  #main-clock { display: none; }
+
+  #menu-radio {
+    font-size: 1.2rem;
+    position: fixed;
+    width: 80%; height: 80%;
+    left: 10%; top: 10%;
+  }
+
+  #radioList { width: 100%; }
+
+  #radioStatus {
+    position: absolute;
+    left: calc(5vw);
+    top: calc(68vh);
+    text-align: left;
+  }
+
+  #radioDecibels {
+    position: absolute;
+    width: 40%; left: calc(45vw);
+    top: calc(68vh);
+    padding: 0; margin: 0;
+  }
+}

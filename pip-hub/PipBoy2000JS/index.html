@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon/48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/96.png">
+    <!-- Leaflet CSS (map) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <!-- App styles -->
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>PipBoyJS</title>
+</head>
+
+<body>
+    <div id="mobile-background"></div>
+
+    <!-- Todo el PipBoy -->
+    <div id="pip-boy">
+        <!-- Animación CSS de las válvulas (se desvanece al inicio) -->
+        <div id="tubes"></div>
+        <!-- Imagen de fondo del PipBoy (solo en PC) -->
+        <div id="pc-background"><img id="background-img" src="./img/back.png"></div>
+
+        <!-- Botones principales -->
+        <div class="pip-button" id="button-alarms"></div>
+        <div class="pip-button" id="button-status"></div>
+        <div class="pip-button" id="button-radio"></div>
+        <div class="pip-button" id="button-automaps"></div>
+        <div class="pip-button" id="button-archives"></div>
+        <div class="pip-button" id="button-close"></div>
+
+        <!-- Reloj principal del PipBoy -->
+        <div id="main-clock">
+            <div class="main-clock-section" id="day">21</div>
+            <div class="main-clock-section" id="month">MARZ</div>
+            <div class="main-clock-section" id="year">2022</div>
+            <div class="main-clock-section" id="hour-minutes">1256</div>
+        </div>
+
+        <!-- Luz de neón de la alarma -->
+        <div id="alarm-neon">
+            <div id="alarm-neon-left"></div>
+            <div id="alarm-neon-center"></div>
+            <div id="alarm-neon-right"></div>
+        </div>
+
+        <!-- Efectos de pantalla (scanlines, barrido, vidrio) -->
+        <div id="pip-screen-scanlines"></div>
+        <div id="pip-screen-scanlines-anim"></div>
+        <div id="pip-screen-glass"></div>
+
+        <!-- Pantalla del PipBoy -->
+        <div id="pip-screen" class="container">
+
+            <!-- MENU: STATUS -->
+            <div class="menu-screen" id="menu-status">
+                <div class="screen-title">STATUS</div>
+                <div id="status-text">
+                    <h2>Pip-Boy JS</h2><br>
+                    <h3>v0.8</h3><br><br><br><br>
+                    <span>Programmed by Ivanovich.</span>
+                    <br><br>
+                    <span>Vault-Tec © 2022.</span>
+                    <span>No rights reserved at all.</span>
+                </div>
+            </div>
+
+            <!-- MENU: RADIO -->
+            <div class="menu-screen" id="menu-radio">
+                <div class="screen-title">RADIO</div>
+                <audio id="playerID" volume="0.5" autoplay preload="auto" controls
+                    src="http://199.189.111.28:8012/;"></audio>
+                <!--
+                    Virtual fixed-window list. JS always renders exactly RADIO_ROWS <li> elements
+                    here and swaps their text content — the container never scrolls.
+                -->
+                <ul id="radioList">
+                    <li class="radio-item" data-row="0"></li>
+                    <li class="radio-item" data-row="1"></li>
+                    <li class="radio-item" data-row="2"></li>
+                    <li class="radio-item" data-row="3"></li>
+                    <li class="radio-item" data-row="4"></li>
+                </ul>
+                <div id="currentlyPlaying">----------------------------------------------------------------</div>
+                <div id="radioStatus">Welcome!</div>
+                <div id="radioDecibels"></div>
+            </div>
+
+            <!-- MENU: AUTOMAPS -->
+            <div class="menu-screen" id="menu-automaps">
+                <div class="screen-title">AUTOMAPS</div>
+                <div id="automaps-text">
+                    <!-- Coordinates line (populated by JS after geolocation) -->
+                    <span id="alarms-geolocation"></span>
+                    <!-- Map container: Leaflet renders into #map-canvas; zoom buttons overlay it -->
+                    <div id="map-container">
+                        <div id="map-canvas"></div>
+                        <div id="map-zoom-controls">
+                            <span class="map-zoom" id="map-zoom-out">−</span>
+                            <span class="map-zoom" id="map-zoom-in">+</span>
+                        </div>
+                    </div>
+                    <span class="menu-footer">Vault-Tec © 2022</span>
+                </div>
+            </div>
+
+            <!-- MENU: ARCHIVES (NOTES) -->
+            <div class="menu-screen" id="menu-archives">
+                <div class="screen-title">ARCHIVES</div>
+                <div id="archives-content">
+                    <!-- Scrollable note list -->
+                    <div id="notes-list"></div>
+
+                    <!-- Inline note composer (hidden by default) -->
+                    <div id="notes-editor">
+                        <div id="notes-editor-header">
+                            <span>NEW ENTRY</span>
+                            <span id="note-char-count">280</span>
+                        </div>
+                        <textarea id="notes-input" maxlength="280"
+                            placeholder="Enter note..."></textarea>
+                        <div id="notes-editor-btns">
+                            <span class="note-btn" id="note-save">[ SAVE ]</span>
+                            <span class="note-btn" id="note-cancel">[ CANCEL ]</span>
+                        </div>
+                    </div>
+
+                    <div id="archives-footer">
+                        <span class="note-btn" id="note-new">[ + NEW NOTE ]</span>
+                        <span class="menu-footer">Vault-Tec © 2022</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MENU: CLOSE -->
+            <div class="menu-screen" id="menu-close">
+                <div class="screen-title">CLOSE</div>
+                <div id="close-text">
+                    <h2>HOW COULD YOU? :(</h2><br>Vault-Tec © 2022
+                </div>
+            </div>
+
+            <!-- MENU: ALARMS -->
+            <div class="menu-screen" id="menu-alarms">
+                <div class="screen-title">ALARMS</div>
+                <div id="alarms-content">
+                    <h3>Sunrise/Sunset</h3>
+                    <div id="sunrise-sunset">
+                        <span id="now">ERROR</span>
+                        <svg id="sunrise-sunset-bar-svg" width="288" height="32">
+                            <rect width="100%" height="50%" x="0" y="25%" fill="#00FF00" fill-opacity="0.5" />
+                            <rect id="sunrise-svg" width="3px" height="75%" x="25%" y="25%" fill="#00FF00" fill-opacity="0.5" />
+                            <line id="now-line-svg" x1="50%" y1="-3" x2="50%" y2="0" stroke-width="4" stroke="rgb(0,255,0,0.75)" />
+                            <rect id="now-svg" width="3px" height="75%" x="50%" y="0" fill="#00FF00" fill-opacity="0.75" />
+                            <rect id="sunset-svg" width="3px" height="100%" x="75%" y="25%" fill="#00FF00" fill-opacity="0.5" />
+                        </svg>
+                        <div id="sunrise-sunset-strings">
+                            <span id="sunrise">UNKNOWN</span>
+                            <span id="sunset">UNKNOWN</span>
+                        </div>
+                    </div>
+                    <br>
+                    <h3>Set Alarm</h3>
+                    <div id="alarm-setup">
+                        <span class="alarm-time" id="alarm-hours">20</span>
+                        <span class="alarm-divider">:</span>
+                        <span class="alarm-time" id="alarm-minutes">09</span>
+                        <span class="alarm-divider">:</span>
+                        <span class="alarm-time" id="alarm-seconds">20</span>
+                        <br><br>
+                        <span id="alarm-activate">ON</span>
+                    </div>
+                    <span id="alarms-footer"><br>Vault-Tec © 2022</span>
+                </div>
+            </div>
+
+        </div><!-- #pip-screen -->
+    </div><!-- #pip-boy -->
+
+    <!-- Leaflet JS (must load before script.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
