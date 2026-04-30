@@ -13,11 +13,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete old deployments
-        uses: marketplace/actions/delete-old-deployments@v3.0.0
+        uses: actions/github-script@v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.repository }}
-          # This keeps only the most recent deployment
-          keep_limit: 1
-          # Optional: remove the deployment from the GitHub UI completely
-          delete_deployment: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const deployments = await github.rest.repos.listDeployments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            if (deployments.data.length > 1) {
+              for (let i = 1; i < deployments.data.length; i++) {
+                await github.rest.repos.deleteDeployment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  deployment_id: deployments.data[i].id,
+                });
+              }
+            }
