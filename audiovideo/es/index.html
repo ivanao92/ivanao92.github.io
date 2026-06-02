@@ -1,12 +1,12 @@
-<html><head><meta http|equiv="Content|Type" content="text/html; charset=utf|8"/><title>Portafolio | Edición de Audio y Video</title><style>
-/* cspell:disable|file */
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Portafolio | Edición de Audio y Video</title><style>
+/* cspell:disable-file */
 /* webkit printing magic: print all background colors */
 html {
-	|webkit|print|color|adjust: exact;
+	-webkit-print-color-adjust: exact;
 }
 * {
-	box|sizing: border|box;
-	|webkit|print|color|adjust: exact;
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
 }
 
 html,
@@ -17,94 +17,94 @@ body {
 @media only screen {
 	body {
 		margin: 2em auto;
-		max|width: 900px;
+		max-width: 900px;
 		color: rgb(55, 53, 47);
 	}
 }
 
 body {
-	line|height: 1.5;
-	white|space: pre|wrap;
+	line-height: 1.5;
+	white-space: pre-wrap;
 }
 
 a,
 a.visited {
 	color: inherit;
-	text|decoration: underline;
+	text-decoration: underline;
 }
 
-.pdf|relative|link|path {
-	font|size: 80%;
+.pdf-relative-link-path {
+	font-size: 80%;
 	color: #444;
 }
 
 h1,
 h2,
 h3 {
-	letter|spacing: |0.01em;
-	line|height: 1.2;
-	font|weight: 600;
-	margin|bottom: 0;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
 }
 
 /* Override strong tags inside headings to maintain consistent weight */
 h1 strong,
 h2 strong,
 h3 strong {
-	font|weight: 600;
+	font-weight: 600;
 }
 
-.page|title {
-	font|size: 2.5rem;
-	font|weight: 700;
-	margin|top: 0;
-	margin|bottom: 0.75em;
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
 }
 
 h1 {
-	font|size: 1.875rem;
-	margin|top: 1.875rem;
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
 }
 
 h2 {
-	font|size: 1.5rem;
-	margin|top: 1.5rem;
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
 }
 
 h3 {
-	font|size: 1.25rem;
-	margin|top: 1.25rem;
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
 }
 
 .source {
 	border: 1px solid #ddd;
-	border|radius: 3px;
+	border-radius: 3px;
 	padding: 1.5em;
-	word|break: break|all;
+	word-break: break-all;
 }
 
 .callout {
-	border|radius: 10px;
+	border-radius: 10px;
 	padding: 1rem;
 }
 
 figure {
 	margin: 1.25em 0;
-	page|break|inside: avoid;
+	page-break-inside: avoid;
 }
 
 figcaption {
 	opacity: 0.5;
-	font|size: 85%;
-	margin|top: 0.5em;
+	font-size: 85%;
+	margin-top: 0.5em;
 }
 
 mark {
-	background|color: transparent;
+	background-color: transparent;
 }
 
 .indented {
-	padding|left: 1.5em;
+	padding-left: 1.5em;
 }
 
 hr {
@@ -114,32 +114,32 @@ hr {
 	height: 1px;
 	visibility: visible;
 	border: none;
-	border|bottom: 1px solid rgba(55, 53, 47, 0.09);
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
 }
 
 img {
-	max|width: 100%;
+	max-width: 100%;
 }
 
 @media only print {
 	img {
-		max|height: 100vh;
-		object|fit: contain;
+		max-height: 100vh;
+		object-fit: contain;
 	}
 
-	table.collection|content {
+	table.collection-content {
 		width: 100%;
-		table|layout: fixed;
+		table-layout: fixed;
 	}
 
-	table.collection|content th,
-	table.collection|content td {
-		overflow|wrap: anywhere;
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
 	}
 
-	table.collection|content td > .user,
-	table.collection|content td > time {
-		white|space: pre|wrap;
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
 	}
 }
 
@@ -147,62 +147,62 @@ img {
 	margin: 1in;
 }
 
-.collection|content|wrapper {
-	overflow|x: auto;
+.collection-content-wrapper {
+	overflow-x: auto;
 }
 
 @media only print {
-	.collection|content|wrapper {
-		overflow|x: visible;
+	.collection-content-wrapper {
+		overflow-x: visible;
 	}
 }
 
-.collection|content {
-	font|size: 0.875rem;
+.collection-content {
+	font-size: 0.875rem;
 }
 
-.collection|content td {
-	white|space: pre|wrap;
-	word|break: break|word;
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
 }
 
-.column|list {
+.column-list {
 	display: flex;
 	gap: 46px;
 }
 
 .column {
-	min|width: 0;
+	min-width: 0;
 	overflow: hidden;
 }
 
-.column > *:first|child {
-	margin|top: 0;
+.column > *:first-child {
+	margin-top: 0;
 }
 
-.table_of_contents|item {
+.table_of_contents-item {
 	display: block;
-	font|size: 0.875rem;
-	line|height: 1.3;
+	font-size: 0.875rem;
+	line-height: 1.3;
 	padding: 0.125rem;
 }
 
-.table_of_contents|indent|1 {
-	margin|left: 1.5rem;
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
 }
 
-.table_of_contents|indent|2 {
-	margin|left: 3rem;
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
 }
 
-.table_of_contents|indent|3 {
-	margin|left: 4.5rem;
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
 }
 
-.table_of_contents|link {
-	text|decoration: none;
+.table_of_contents-link {
+	text-decoration: none;
 	opacity: 0.7;
-	border|bottom: 1px solid rgba(55, 53, 47, 0.18);
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
 }
 
 table,
@@ -212,18 +212,18 @@ td {
 }
 
 table {
-	border|collapse: collapse;
-	border|left: none;
-	border|right: none;
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
 }
 
 th,
 td {
-	font|weight: normal;
+	font-weight: normal;
 	padding: 0.25em 0.5em;
-	line|height: 1.5;
-	min|height: 1.5em;
-	text|align: left;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
 }
 
 th {
@@ -233,123 +233,123 @@ th {
 ol,
 ul {
 	margin: 0;
-	margin|block|start: 0.6em;
-	margin|block|end: 0.6em;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
 }
 
-li > ol:first|child,
-li > ul:first|child {
-	margin|block|start: 0.6em;
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
 }
 
 ul > li {
-	list|style: disc;
+	list-style: disc;
 }
 
-ul.to|do|list {
-	padding|inline|start: 0;
+ul.to-do-list {
+	padding-inline-start: 0;
 }
 
-ul.to|do|list > li {
-	list|style: none;
+ul.to-do-list > li {
+	list-style: none;
 }
 
-.to|do|children|checked {
-	text|decoration: line|through;
+.to-do-children-checked {
+	text-decoration: line-through;
 	opacity: 0.375;
 }
 
 ul.toggle > li {
-	list|style: none;
+	list-style: none;
 }
 
 ul {
-	padding|inline|start: 1.7em;
+	padding-inline-start: 1.7em;
 }
 
 ul > li {
-	padding|left: 0.1em;
+	padding-left: 0.1em;
 }
 
 ol {
-	padding|inline|start: 1.6em;
+	padding-inline-start: 1.6em;
 }
 
-ol.numbered|list.numbered|list|digits|2 {
-	padding|inline|start: 2em;
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
 }
 
-ol.numbered|list.numbered|list|digits|3plus {
-	padding|inline|start: 2.4em;
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
 }
 
 ol > li {
-	padding|left: 0.2em;
+	padding-left: 0.2em;
 }
 
 .mono ol {
-	padding|inline|start: 2em;
+	padding-inline-start: 2em;
 }
 
 .mono ol > li {
-	text|indent: |0.4em;
+	text-indent: -0.4em;
 }
 
 .toggle {
-	padding|inline|start: 0em;
-	list|style|type: none;
+	padding-inline-start: 0em;
+	list-style-type: none;
 }
 
 /* Indent toggle children */
 .toggle > li > details {
-	padding|left: 1.7em;
+	padding-left: 1.7em;
 }
 
 .toggle > li > details > summary {
-	margin|left: |1.1em;
+	margin-left: -1.1em;
 }
 
-.selected|value {
-	display: inline|block;
+.selected-value {
+	display: inline-block;
 	padding: 0 0.5em;
 	background: rgba(206, 205, 202, 0.5);
-	border|radius: 3px;
-	margin|right: 0.5em;
-	margin|top: 0.3em;
-	margin|bottom: 0.3em;
-	white|space: nowrap;
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
 }
 
-.collection|title {
-	display: inline|block;
-	margin|right: 1em;
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
 }
 
-.page|description {
-	margin|bottom: 2em;
+.page-description {
+	margin-bottom: 2em;
 }
 
-.simple|table {
-	margin|top: 1em;
-	font|size: 0.875rem;
-	empty|cells: show;
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
 }
-.simple|table td {
+.simple-table td {
 	height: 29px;
-	min|width: 120px;
+	min-width: 120px;
 }
 
-.simple|table th {
+.simple-table th {
 	height: 29px;
-	min|width: 120px;
+	min-width: 120px;
 }
 
-.simple|table|header|color {
+.simple-table-header-color {
 	background: rgb(247, 246, 243);
 	color: black;
 }
-.simple|table|header {
-	font|weight: 500;
+.simple-table-header {
+	font-weight: 500;
 }
 
 time {
@@ -357,21 +357,21 @@ time {
 }
 
 .icon {
-	display: inline|flex;
-	align|items: center;
-	justify|content: center;
-	max|width: 1.2em;
-	max|height: 1.2em;
-	text|decoration: none;
-	vertical|align: text|bottom;
-	margin|right: 0.5em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
 }
 
 img.icon {
-	border|radius: 3px;
+	border-radius: 3px;
 }
 
-.callout img.notion|static|icon {
+.callout img.notion-static-icon {
 	width: 1em;
 	height: 1em;
 }
@@ -386,48 +386,48 @@ img.icon {
 	margin: 0 0 0.6rem;
 }
 
-.user|icon {
+.user-icon {
 	width: 1.5em;
 	height: 1.5em;
-	border|radius: 100%;
-	margin|right: 0.5rem;
+	border-radius: 100%;
+	margin-right: 0.5rem;
 }
 
-.user|icon|inner {
-	font|size: 0.8em;
+.user-icon-inner {
+	font-size: 0.8em;
 }
 
-.text|icon {
+.text-icon {
 	border: 1px solid #000;
-	text|align: center;
+	text-align: center;
 }
 
-.page|cover|image {
+.page-cover-image {
 	display: block;
-	object|fit: cover;
+	object-fit: cover;
 	width: 100%;
-	max|height: 30vh;
+	max-height: 30vh;
 }
 
-.page|header|icon {
-	font|size: 3rem;
-	margin|bottom: 1rem;
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
 }
 
-.page|header|icon|with|cover {
-	margin|top: |0.72em;
-	margin|left: 0.07em;
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
 }
 
-.page|header|icon img {
-	border|radius: 3px;
+.page-header-icon img {
+	border-radius: 3px;
 }
 
-.link|to|page {
+.link-to-page {
 	margin: 1em 0;
 	padding: 0;
 	border: none;
-	font|weight: 500;
+	font-weight: 500;
 }
 
 p > .user {
@@ -436,36 +436,36 @@ p > .user {
 
 td > .user,
 td > time {
-	white|space: nowrap;
+	white-space: nowrap;
 }
 
 input[type="checkbox"] {
 	transform: scale(1.5);
-	margin|right: 0.6em;
-	vertical|align: middle;
+	margin-right: 0.6em;
+	vertical-align: middle;
 }
 
 p {
-	margin|top: 0.5em;
-	margin|bottom: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 .image {
 	border: none;
 	margin: 1.5em 0;
 	padding: 0;
-	border|radius: 0;
-	text|align: center;
+	border-radius: 0;
+	text-align: center;
 }
 
 .code,
 code {
 	background: rgba(135, 131, 120, 0.15);
-	border|radius: 3px;
+	border-radius: 3px;
 	padding: 0.2em 0.4em;
-	border|radius: 3px;
-	font|size: 85%;
-	tab|size: 2;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
 }
 
 code {
@@ -476,268 +476,268 @@ code {
 	padding: 1.5em 1em;
 }
 
-.code|wrap {
-	white|space: pre|wrap;
-	word|break: break|all;
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
 .code > code {
 	background: none;
 	padding: 0;
-	font|size: 100%;
+	font-size: 100%;
 	color: inherit;
 }
 
 blockquote {
-	font|size: 1em;
+	font-size: 1em;
 	margin: 1em 0;
-	padding|left: 1em;
-	border|left: 3px solid rgb(55, 53, 47);
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
 }
 
-blockquote.quote|large {
-	font|size: 1.25em;
+blockquote.quote-large {
+	font-size: 1.25em;
 }
 
 .bookmark {
-	text|decoration: none;
-	max|height: 8em;
+	text-decoration: none;
+	max-height: 8em;
 	padding: 0;
 	display: flex;
 	width: 100%;
-	align|items: stretch;
+	align-items: stretch;
 }
 
-.bookmark|title {
-	font|size: 0.85em;
+.bookmark-title {
+	font-size: 0.85em;
 	overflow: hidden;
-	text|overflow: ellipsis;
+	text-overflow: ellipsis;
 	height: 1.75em;
-	white|space: nowrap;
+	white-space: nowrap;
 }
 
-.bookmark|text {
+.bookmark-text {
 	display: flex;
-	flex|direction: column;
+	flex-direction: column;
 }
 
-.bookmark|info {
+.bookmark-info {
 	flex: 4 1 180px;
 	padding: 12px 14px 14px;
 	display: flex;
-	flex|direction: column;
-	justify|content: space|between;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-.bookmark|image {
+.bookmark-image {
 	width: 33%;
 	flex: 1 1 180px;
 	display: block;
 	position: relative;
-	object|fit: cover;
-	border|radius: 1px;
+	object-fit: cover;
+	border-radius: 1px;
 }
 
-.bookmark|description {
+.bookmark-description {
 	color: rgba(55, 53, 47, 0.6);
-	font|size: 0.75em;
+	font-size: 0.75em;
 	overflow: hidden;
-	max|height: 4.5em;
-	word|break: break|word;
+	max-height: 4.5em;
+	word-break: break-word;
 }
 
-.bookmark|href {
-	font|size: 0.75em;
-	margin|top: 0.25em;
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
 }
 
-.sans { font|family: ui|sans|serif, |apple|system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans|serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font|family: "SFMono|Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font|family: Lyon|Text, Georgia, ui|serif, serif; }
-.mono { font|family: iawriter|mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font|family: Inter, ui|sans|serif, |apple|system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans|serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh|CN) .sans { font|family: Inter, ui|sans|serif, |apple|system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans|serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh|TW) .sans { font|family: Inter, ui|sans|serif, |apple|system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans|serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko|KR) .sans { font|family: Inter, ui|sans|serif, |apple|system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans|serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font|family: Source Code Pro, "SFMono|Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh|CN) .code { font|family: Source Code Pro, "SFMono|Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh|TW) .code { font|family: Source Code Pro, "SFMono|Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko|KR) .code { font|family: Source Code Pro, "SFMono|Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font|family: PT Serif, Lyon|Text, Georgia, ui|serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh|CN) .serif { font|family: PT Serif, Lyon|Text, Georgia, ui|serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh|TW) .serif { font|family: PT Serif, Lyon|Text, Georgia, ui|serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko|KR) .serif { font|family: PT Serif, Lyon|Text, Georgia, ui|serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font|family: PT Mono, iawriter|mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh|CN) .mono { font|family: PT Mono, iawriter|mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh|TW) .mono { font|family: PT Mono, iawriter|mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko|KR) .mono { font|family: PT Mono, iawriter|mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight|default {
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
 	color: rgba(44, 44, 43, 1);
 }
-.highlight|gray {
+.highlight-gray {
 	color: rgba(125, 122, 117, 1);
 	fill: rgba(125, 122, 117, 1);
 }
-.highlight|brown {
+.highlight-brown {
 	color: rgba(159, 118, 90, 1);
 	fill: rgba(159, 118, 90, 1);
 }
-.highlight|orange {
+.highlight-orange {
 	color: rgba(210, 123, 45, 1);
 	fill: rgba(210, 123, 45, 1);
 }
-.highlight|yellow {
+.highlight-yellow {
 	color: rgba(203, 148, 52, 1);
 	fill: rgba(203, 148, 52, 1);
 }
-.highlight|teal {
+.highlight-teal {
 	color: rgba(80, 148, 110, 1);
 	fill: rgba(80, 148, 110, 1);
 }
-.highlight|blue {
+.highlight-blue {
 	color: rgba(56, 125, 201, 1);
 	fill: rgba(56, 125, 201, 1);
 }
-.highlight|purple {
+.highlight-purple {
 	color: rgba(154, 107, 180, 1);
 	fill: rgba(154, 107, 180, 1);
 }
-.highlight|pink {
+.highlight-pink {
 	color: rgba(193, 76, 138, 1);
 	fill: rgba(193, 76, 138, 1);
 }
-.highlight|red {
+.highlight-red {
 	color: rgba(207, 81, 72, 1);
 	fill: rgba(207, 81, 72, 1);
 }
-.highlight|default_background {
+.highlight-default_background {
 	color: rgba(44, 44, 43, 1);
 }
-.highlight|gray_background {
+.highlight-gray_background {
 	background: rgba(42, 28, 0, 0.07);
 }
-.highlight|brown_background {
+.highlight-brown_background {
 	background: rgba(139, 46, 0, 0.086);
 }
-.highlight|orange_background {
+.highlight-orange_background {
 	background: rgba(224, 101, 1, 0.129);
 }
-.highlight|yellow_background {
+.highlight-yellow_background {
 	background: rgba(211, 168, 0, 0.137);
 }
-.highlight|teal_background {
+.highlight-teal_background {
 	background: rgba(0, 100, 45, 0.09);
 }
-.highlight|blue_background {
+.highlight-blue_background {
 	background: rgba(0, 124, 215, 0.094);
 }
-.highlight|purple_background {
+.highlight-purple_background {
 	background: rgba(102, 0, 178, 0.078);
 }
-.highlight|pink_background {
+.highlight-pink_background {
 	background: rgba(197, 0, 93, 0.086);
 }
-.highlight|red_background {
+.highlight-red_background {
 	background: rgba(223, 22, 0, 0.094);
 }
-.block|color|default {
+.block-color-default {
 	color: inherit;
 	fill: inherit;
 }
-.block|color|gray {
+.block-color-gray {
 	color: rgba(125, 122, 117, 1);
 	fill: rgba(125, 122, 117, 1);
 }
-.block|color|brown {
+.block-color-brown {
 	color: rgba(159, 118, 90, 1);
 	fill: rgba(159, 118, 90, 1);
 }
-.block|color|orange {
+.block-color-orange {
 	color: rgba(210, 123, 45, 1);
 	fill: rgba(210, 123, 45, 1);
 }
-.block|color|yellow {
+.block-color-yellow {
 	color: rgba(203, 148, 52, 1);
 	fill: rgba(203, 148, 52, 1);
 }
-.block|color|teal {
+.block-color-teal {
 	color: rgba(80, 148, 110, 1);
 	fill: rgba(80, 148, 110, 1);
 }
-.block|color|blue {
+.block-color-blue {
 	color: rgba(56, 125, 201, 1);
 	fill: rgba(56, 125, 201, 1);
 }
-.block|color|purple {
+.block-color-purple {
 	color: rgba(154, 107, 180, 1);
 	fill: rgba(154, 107, 180, 1);
 }
-.block|color|pink {
+.block-color-pink {
 	color: rgba(193, 76, 138, 1);
 	fill: rgba(193, 76, 138, 1);
 }
-.block|color|red {
+.block-color-red {
 	color: rgba(207, 81, 72, 1);
 	fill: rgba(207, 81, 72, 1);
 }
-.block|color|default_background {
+.block-color-default_background {
 	color: inherit;
 	fill: inherit;
 }
-.block|color|gray_background {
+.block-color-gray_background {
 	background: rgba(240, 239, 237, 1);
 }
-.block|color|brown_background {
+.block-color-brown_background {
 	background: rgba(245, 237, 233, 1);
 }
-.block|color|orange_background {
+.block-color-orange_background {
 	background: rgba(251, 235, 222, 1);
 }
-.block|color|yellow_background {
+.block-color-yellow_background {
 	background: rgba(249, 243, 220, 1);
 }
-.block|color|teal_background {
+.block-color-teal_background {
 	background: rgba(232, 241, 236, 1);
 }
-.block|color|blue_background {
+.block-color-blue_background {
 	background: rgba(229, 242, 252, 1);
 }
-.block|color|purple_background {
+.block-color-purple_background {
 	background: rgba(243, 235, 249, 1);
 }
-.block|color|pink_background {
+.block-color-pink_background {
 	background: rgba(250, 233, 241, 1);
 }
-.block|color|red_background {
+.block-color-red_background {
 	background: rgba(252, 233, 231, 1);
 }
-.select|value|color|default { background|color: rgba(42, 28, 0, 0.07); }
-.select|value|color|gray { background|color: rgba(28, 19, 1, 0.11); }
-.select|value|color|brown { background|color: rgba(127, 51, 0, 0.156); }
-.select|value|color|orange { background|color: rgba(196, 88, 0, 0.203); }
-.select|value|color|yellow { background|color: rgba(209, 156, 0, 0.282); }
-.select|value|color|green { background|color: rgba(0, 96, 38, 0.156); }
-.select|value|color|blue { background|color: rgba(0, 118, 217, 0.203); }
-.select|value|color|purple { background|color: rgba(92, 0, 163, 0.141); }
-.select|value|color|pink { background|color: rgba(183, 0, 78, 0.152); }
-.select|value|color|red { background|color: rgba(206, 24, 0, 0.164); }
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
 
 .checkbox {
-	display: inline|flex;
-	vertical|align: text|bottom;
+	display: inline-flex;
+	vertical-align: text-bottom;
 	width: 16;
 	height: 16;
-	background|size: 16px;
-	margin|left: 2px;
-	margin|right: 5px;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
 }
 
-.checkbox|on {
-	background|image: url("data:image/svg+xml;charset=UTF|8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 
-.checkbox|off {
-	background|image: url("data:image/svg+xml;charset=UTF|8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke|width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="59be737b|73fb|43a3|8c20|fc75af4654a9" class="page sans"><header><h1 class="page|title" dir="auto">Portafolio | Edición de Audio y Video</h1><p class="page|description" dir="auto"></p></header><div class="page|body"><div style="display:contents" dir="ltr"><figure class="block|color|gray_background callout" style="white|space:pre|wrap;display:flex" id="2e3e0cbf|5497|44b4|951e|5f62b0070cd2"><div style="font|size:1.5em"><span class="icon">🎬</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2c6ebd29|556a|404d|944b|c5b5bc742eff" class=""><strong>Portafolio | Edición de Audio y Video</strong></p></div><div style="display:contents" dir="auto"><p id="d53d8760|484a|4ce1|b9c2|f6a4ce3620ff" class="">Edición de video · Grabación · Mezcla · Shorts de YouTube</p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="89b858e6|55f9|4aa1|be0a|df5c980e8756" class="">Acerca de</h2></div><div style="display:contents" dir="auto"><p id="9ff02a9a|fe37|4a77|bd3b|887a53182e68" class="">Editor audiovisual especializado en contenido para YouTube, podcasts y formatos cortos (Shorts/Reels). Combino una narrativa visual dinámica con grabación y mezcla de audio profesional para crear contenido atractivo y de alta retención.</p></div><div style="display:contents" dir="auto"><h2 id="df6ec12d|f4d6|4ea9|9421|46a1e638acb2" class="">Trabajos destacados</h2></div><div style="display:contents" dir="auto"><h3 id="8c95a5a2|dbfa|4b8c|8a56|7a3967982503" class="">1) Videoclip musical — Edición de video</h3></div><div style="display:contents" dir="auto"><p id="809db053|af20|49bc|b266|1c1893ae1fbd" class=""><strong>Rol:</strong> Editor de video  </p></div><div style="display:contents" dir="auto"><p id="731d388c|955a|447b|bd00|0eaf213204d2" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/watch?v=tlnSsLDUTNA">https://www.youtube.com/watch?v=tlnSsLDUTNA</a>  </p></div><div style="display:contents" dir="auto"><p id="da46d97c|a00d|4796|a032|514b7e490f8a" class=""><strong>Notas:</strong> Los créditos figuran en la descripción del video.</p></div><div style="display:contents" dir="auto"><hr id="88b4e3d5|8d92|4403|845d|07ad7e25b6a0"/></div><div style="display:contents" dir="auto"><h3 id="b7a0b5b0|175b|40c6|9237|ef95c1ec3fb6" class="">2) Videoclip musical — Grabación y mezcla</h3></div><div style="display:contents" dir="auto"><p id="869f12a6|4a22|46e3|9813|00c430ba8c95" class=""><strong>Rol:</strong> Grabación y mezcla de audio  </p></div><div style="display:contents" dir="auto"><p id="95d98828|979f|467c|bc63|81818daad94a" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/watch?v=aXAocqfFWgs">https://www.youtube.com/watch?v=aXAocqfFWgs</a>  </p></div><div style="display:contents" dir="auto"><p id="531b98ab|7822|4c03|af48|86e3345340a8" class=""><strong>Notas:</strong> Los créditos figuran en la descripción del video.</p></div><div style="display:contents" dir="auto"><hr id="86fddd3c|b397|4852|ae79|c96462458631"/></div><div style="display:contents" dir="auto"><h3 id="41af1de8|df80|4f69|95c4|e18daf12d150" class="">3) Shorts de YouTube — Edición (canal)</h3></div><div style="display:contents" dir="auto"><p id="6c8266f4|6bba|4128|a542|19670c299c74" class=""><strong>Rol:</strong> Editor de Shorts  </p></div><div style="display:contents" dir="auto"><p id="2eb5589f|5088|4b47|b055|b2db6848aabf" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/c/JulianaWilson/shorts">https://www.youtube.com/c/JulianaWilson/shorts</a></p></div><div style="display:contents" dir="auto"><h2 id="41bdd1bd|9320|488d|8e11|c6c7e898d78e" class="">Servicios</h2></div><div style="display:contents" dir="auto"><ul id="3a6610cd|fbad|4249|b331|ceb63bf8dff3" class="bulleted|list"><li style="list|style|type:disc">Edición de video (cortes, ritmo, subtítulos y adaptación de formatos)</li></ul></div><div style="display:contents" dir="auto"><ul id="ef0807de|621d|4321|a959|15b789f5d9a5" class="bulleted|list"><li style="list|style|type:disc">YouTube Shorts / Reels / TikTok (vertical 9:16)</li></ul></div><div style="display:contents" dir="auto"><ul id="e173642c|57c5|4514|8cf3|1d3b13d63361" class="bulleted|list"><li style="list|style|type:disc">Grabación y mezcla de audio</li></ul></div><div style="display:contents" dir="auto"><h2 id="c61d4d29|9faf|42a2|b629|374fddec5d4f" class="">Herramientas</h2></div><div style="display:contents" dir="auto"><ul id="c34c7e53|bdab|43cb|966b|7b42885656fc" class="bulleted|list"><li style="list|style|type:disc">Adobe (Premiere Pro, Photoshop, After Effects), REAPER, entre otras.</li></ul></div></div></article><span class="sans" style="font|size:14px;padding|top:2em"></span></body></html>
+</style></head><body><article id="59be737b-73fb-43a3-8c20-fc75af4654a9" class="page sans"><header><h1 class="page-title" dir="auto">Portafolio | Edición de Audio y Video</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="ltr"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2e3e0cbf-5497-44b4-951e-5f62b0070cd2"><div style="font-size:1.5em"><span class="icon">🎬</span></div><div style="width:100%"><div style="display:contents" dir="auto"><p id="2c6ebd29-556a-404d-944b-c5b5bc742eff" class=""><strong>Portafolio | Edición de Audio y Video</strong></p></div><div style="display:contents" dir="auto"><p id="d53d8760-484a-4ce1-b9c2-f6a4ce3620ff" class="">Edición de video | Grabación | Mezcla | Shorts de YouTube</p></div></div></figure></div><div style="display:contents" dir="auto"><h2 id="89b858e6-55f9-4aa1-be0a-df5c980e8756" class="">Acerca de</h2></div><div style="display:contents" dir="auto"><p id="9ff02a9a-fe37-4a77-bd3b-887a53182e68" class="">Editor audiovisual especializado en contenido para YouTube, podcasts y formatos cortos (Shorts/Reels). Combino una narrativa visual dinámica con grabación y mezcla de audio profesional para crear contenido atractivo y de alta retención.</p></div><div style="display:contents" dir="auto"><h2 id="df6ec12d-f4d6-4ea9-9421-46a1e638acb2" class="">Trabajos destacados</h2></div><div style="display:contents" dir="auto"><h3 id="8c95a5a2-dbfa-4b8c-8a56-7a3967982503" class="">1) Videoclip musical — Edición de video</h3></div><div style="display:contents" dir="auto"><p id="809db053-af20-49bc-b266-1c1893ae1fbd" class=""><strong>Rol:</strong> Editor de video  </p></div><div style="display:contents" dir="auto"><p id="731d388c-955a-447b-bd00-0eaf213204d2" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/watch?v=tlnSsLDUTNA">https://www.youtube.com/watch?v=tlnSsLDUTNA</a>  </p></div><div style="display:contents" dir="auto"><p id="da46d97c-a00d-4796-a032-514b7e490f8a" class=""><strong>Notas:</strong> Los créditos figuran en la descripción del video.</p></div><div style="display:contents" dir="auto"><hr id="88b4e3d5-8d92-4403-845d-07ad7e25b6a0"/></div><div style="display:contents" dir="auto"><h3 id="b7a0b5b0-175b-40c6-9237-ef95c1ec3fb6" class="">2) Videoclip musical — Grabación y mezcla</h3></div><div style="display:contents" dir="auto"><p id="869f12a6-4a22-46e3-9813-00c430ba8c95" class=""><strong>Rol:</strong> Grabación y mezcla de audio  </p></div><div style="display:contents" dir="auto"><p id="95d98828-979f-467c-bc63-81818daad94a" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/watch?v=aXAocqfFWgs">https://www.youtube.com/watch?v=aXAocqfFWgs</a>  </p></div><div style="display:contents" dir="auto"><p id="531b98ab-7822-4c03-af48-86e3345340a8" class=""><strong>Notas:</strong> Los créditos figuran en la descripción del video.</p></div><div style="display:contents" dir="auto"><hr id="86fddd3c-b397-4852-ae79-c96462458631"/></div><div style="display:contents" dir="auto"><h3 id="41af1de8-df80-4f69-95c4-e18daf12d150" class="">3) Shorts de YouTube — Edición (canal)</h3></div><div style="display:contents" dir="auto"><p id="6c8266f4-6bba-4128-a542-19670c299c74" class=""><strong>Rol:</strong> Editor de Shorts  </p></div><div style="display:contents" dir="auto"><p id="2eb5589f-5088-4b47-b055-b2db6848aabf" class=""><strong>Enlace:</strong> <a href="https://www.youtube.com/c/JulianaWilson/shorts">https://www.youtube.com/c/JulianaWilson/shorts</a></p></div><div style="display:contents" dir="auto"><h2 id="41bdd1bd-9320-488d-8e11-c6c7e898d78e" class="">Servicios</h2></div><div style="display:contents" dir="auto"><ul id="3a6610cd-fbad-4249-b331-ceb63bf8dff3" class="bulleted-list"><li style="list-style-type:disc">Edición de video (cortes, ritmo, subtítulos y adaptación de formatos)</li></ul></div><div style="display:contents" dir="auto"><ul id="ef0807de-621d-4321-a959-15b789f5d9a5" class="bulleted-list"><li style="list-style-type:disc">YouTube Shorts / Reels / TikTok (vertical 9:16)</li></ul></div><div style="display:contents" dir="auto"><ul id="e173642c-57c5-4514-8cf3-1d3b13d63361" class="bulleted-list"><li style="list-style-type:disc">Grabación y mezcla de audio</li></ul></div><div style="display:contents" dir="auto"><h2 id="c61d4d29-9faf-42a2-b629-374fddec5d4f" class="">Herramientas</h2></div><div style="display:contents" dir="auto"><ul id="c34c7e53-bdab-43cb-966b-7b42885656fc" class="bulleted-list"><li style="list-style-type:disc">Adobe (Premiere Pro, Photoshop, After Effects), REAPER, entre otras.</li></ul></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
