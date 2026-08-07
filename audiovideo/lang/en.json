@@ -1,0 +1,69 @@
+{
+  "htmlLang": "en",
+  "title": "Portfolio - Iván Agustín Ogñenovich",
+  "h1": "Portfolio - Iván Agustín Ogñenovich",
+  "callout": "Audio Recording, Mixing & Mastering · Video Editing · Long & Short-Form Content",
+  "labels": {
+    "role": "Role",
+    "link": "Link",
+    "notes": "Notes"
+  },
+  "about": {
+    "heading": "About",
+    "paragraphs": [
+      "Audiovisual editor focused on YouTube content, podcasts, and short-form (Shorts/Reels).",
+      "Combining professional audio quality with dynamic video storytelling to deliver high-retention content."
+    ]
+  },
+  "featured": {
+    "heading": "Featured work",
+    "groups": [
+      {
+        "heading": "Video Editing",
+        "projects": [
+          {
+            "title": "Music Video",
+            "role": "Video editor",
+            "link": "https://www.youtube.com/watch?v=tlnSsLDUTNA",
+            "notes": "Credit is listed in the video description."
+          },
+          {
+            "title": "YouTube Video",
+            "role": "Video editing (and I also made the intro music)",
+            "link": "https://www.youtube.com/watch?v=Bc8F1s8ljI8"
+          },
+          {
+            "title": "YouTube Shorts",
+            "role": "Video editing",
+            "link": "https://www.youtube.com/c/JulianaWilson/shorts"
+          }
+        ]
+      },
+      {
+        "heading": "Audio Recording & Mixing",
+        "projects": [
+          {
+            "title": "Music Video",
+            "role": "Audio recording and mixing",
+            "link": "https://www.youtube.com/watch?v=aXAocqfFWgs",
+            "notes": "Credit is listed in the video description."
+          }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "heading": "Services",
+    "items": [
+      "Video editing (cuts, pacing, subtitles, format adaptation)",
+      "YouTube Shorts / Reels / TikTok (vertical 9:16)",
+      "Audio recording, mixing and mastering"
+    ]
+  },
+  "tools": {
+    "heading": "Tools",
+    "items": [
+      "Adobe (Premiere Pro, Photoshop, After Effects), REAPER, among others."
+    ]
+  }
+}

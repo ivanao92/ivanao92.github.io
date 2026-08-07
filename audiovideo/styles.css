@@ -30,6 +30,16 @@ a {
     text-decoration: underline;
 }
 
+/* Language switcher */
+.lang-switch {
+    margin-bottom: 1.5em;
+    font-size: 0.9rem;
+}
+
+.lang-switch .current {
+    font-weight: 600;
+}
+
 /* Link truncation for raw URLs inside project cards */
 .project a {
     word-break: break-all;

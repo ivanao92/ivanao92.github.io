@@ -3,71 +3,132 @@
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio - Iván Agustín Ogñenovich</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <article>
-    <header>
-      <h1>Portfolio - Iván Agustín Ogñenovich</h1>
-    </header>
-
-    <figure class="callout">
-      <div>
-        <span class="icon" aria-hidden="true">🎵🎬</span>
-        <p>Audio Recording, Mixing &amp; Mastering · Video Editing · Long &amp; Short-Form Content</p>
-      </div>
-    </figure>
-
-    <h2>About</h2>
-    <p>Audiovisual editor focused on YouTube content, podcasts, and short-form (Shorts/Reels).</p>
-    <p>Combining professional audio quality with dynamic video storytelling to deliver high-retention content.</p>
-
-    <h2>Featured work</h2>
-
-    <h3>Video Editing</h3>
-
-    <div class="project">
-      <p><strong>Music Video</strong></p>
-      <p><strong>Role:</strong> Video editor</p>
-      <p><strong>Link:</strong> <a href="https://www.youtube.com/watch?v=tlnSsLDUTNA">https://www.youtube.com/watch?v=tlnSsLDUTNA</a></p>
-      <p><strong>Notes:</strong> Credit is listed in the video description.</p>
-    </div>
-
-    <div class="project">
-      <p><strong>YouTube Video</strong></p>
-      <p><strong>Role:</strong> Video editing (and I also made the intro music)</p>
-      <p><strong>Link:</strong> <a href="https://www.youtube.com/watch?v=Bc8F1s8ljI8">https://www.youtube.com/watch?v=Bc8F1s8ljI8</a></p>
-    </div>
-
-    <div class="project">
-      <p><strong>YouTube Shorts</strong></p>
-      <p><strong>Role:</strong> Video editing</p>
-      <p><strong>Link:</strong> <a href="https://www.youtube.com/c/JulianaWilson/shorts">https://www.youtube.com/c/JulianaWilson/shorts</a></p>
-    </div>
-
-    <h3>Audio Recording &amp; Mixing</h3>
-
-    <div class="project">
-      <p><strong>Music Video</strong></p>
-      <p><strong>Role:</strong> Audio recording and mixing</p>
-      <p><strong>Link:</strong> <a href="https://www.youtube.com/watch?v=aXAocqfFWgs">https://www.youtube.com/watch?v=aXAocqfFWgs</a></p>
-      <p><strong>Notes:</strong> Credit is listed in the video description.</p>
-    </div>
-
-    <h2>Services</h2>
-    <ul>
-      <li>Video editing (cuts, pacing, subtitles, format adaptation)</li>
-      <li>YouTube Shorts / Reels / TikTok (vertical 9:16)</li>
-      <li>Audio recording, mixing and mastering</li>
-    </ul>
-
-    <h2>Tools</h2>
-    <ul>
-      <li>Adobe (Premiere Pro, Photoshop, After Effects), REAPER, among others.</li>
-    </ul>
+  <!--
+    Single shared template. All page text lives in lang/<code>.json (one file
+    per language). To add or edit a language, edit or create that JSON file and
+    add its code to SUPPORTED_LANGS below. HTML and CSS stay shared.
+  -->
+  <article id="app">
+    <p id="loading">Loading…</p>
   </article>
+
+  <script>
+    // Add a language by dropping a lang/<code>.json file and listing it here.
+    const SUPPORTED_LANGS = ["en", "es"];
+    const DEFAULT_LANG = "en";
+    const LANG_NAMES = { en: "English", es: "Español" };
+
+    function pickLang() {
+      const param = new URLSearchParams(location.search).get("lang");
+      if (param && SUPPORTED_LANGS.includes(param)) return param;
+      const stored = localStorage.getItem("lang");
+      if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
+      const nav = (navigator.language || "").slice(0, 2).toLowerCase();
+      if (SUPPORTED_LANGS.includes(nav)) return nav;
+      return DEFAULT_LANG;
+    }
+
+    function el(tag, props, children) {
+      const node = document.createElement(tag);
+      if (props) Object.assign(node, props);
+      (children || []).forEach(c =>
+        node.appendChild(typeof c === "string" ? document.createTextNode(c) : c)
+      );
+      return node;
+    }
+
+    // Builds "<strong>Label:</strong> value" line; value may be a link.
+    function field(label, value, asLink) {
+      const p = el("p", null, [el("strong", { textContent: label + ":" }), " "]);
+      if (asLink) {
+        p.appendChild(el("a", { href: value, textContent: value }));
+      } else {
+        p.appendChild(document.createTextNode(value));
+      }
+      return p;
+    }
+
+    function langSwitcher(current) {
+      const nav = el("nav", { className: "lang-switch" });
+      SUPPORTED_LANGS.forEach((code, i) => {
+        if (i > 0) nav.appendChild(document.createTextNode(" · "));
+        if (code === current) {
+          nav.appendChild(el("span", { className: "current", textContent: LANG_NAMES[code] }));
+        } else {
+          const a = el("a", { href: "?lang=" + code, textContent: LANG_NAMES[code] });
+          a.addEventListener("click", () => localStorage.setItem("lang", code));
+          nav.appendChild(a);
+        }
+      });
+      return nav;
+    }
+
+    function render(t, lang) {
+      document.documentElement.lang = t.htmlLang || lang;
+      document.title = t.title;
+
+      const app = document.getElementById("app");
+      app.innerHTML = "";
+
+      app.appendChild(langSwitcher(lang));
+      app.appendChild(el("header", null, [el("h1", { textContent: t.h1 })]));
+
+      // Callout
+      const callout = el("figure", { className: "callout" });
+      const cdiv = el("div", null, [
+        el("span", { className: "icon", textContent: "🎵🎬" }),
+        el("p", { textContent: t.callout })
+      ]);
+      cdiv.querySelector(".icon").setAttribute("aria-hidden", "true");
+      callout.appendChild(cdiv);
+      app.appendChild(callout);
+
+      // About
+      app.appendChild(el("h2", { textContent: t.about.heading }));
+      t.about.paragraphs.forEach(p => app.appendChild(el("p", { textContent: p })));
+
+      // Featured work
+      app.appendChild(el("h2", { textContent: t.featured.heading }));
+      t.featured.groups.forEach(group => {
+        app.appendChild(el("h3", { textContent: group.heading }));
+        group.projects.forEach(proj => {
+          const card = el("div", { className: "project" });
+          card.appendChild(el("p", null, [el("strong", { textContent: proj.title })]));
+          card.appendChild(field(t.labels.role, proj.role, false));
+          card.appendChild(field(t.labels.link, proj.link, true));
+          if (proj.notes) card.appendChild(field(t.labels.notes, proj.notes, false));
+          app.appendChild(card);
+        });
+      });
+
+      // Services
+      app.appendChild(el("h2", { textContent: t.services.heading }));
+      app.appendChild(el("ul", null, t.services.items.map(i => el("li", { textContent: i }))));
+
+      // Tools
+      app.appendChild(el("h2", { textContent: t.tools.heading }));
+      app.appendChild(el("ul", null, t.tools.items.map(i => el("li", { textContent: i }))));
+    }
+
+    (async function () {
+      const lang = pickLang();
+      try {
+        const res = await fetch("lang/" + lang + ".json");
+        if (!res.ok) throw new Error(res.status);
+        render(await res.json(), lang);
+      } catch (e) {
+        document.getElementById("loading").textContent =
+          "Could not load content (lang/" + lang + ".json).";
+        console.error(e);
+      }
+    })();
+  </script>
 </body>
 
 </html>

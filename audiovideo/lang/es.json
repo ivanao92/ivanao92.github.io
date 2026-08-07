@@ -1,0 +1,69 @@
+{
+  "htmlLang": "es",
+  "title": "Portafolio - Iván Agustín Ogñenovich",
+  "h1": "Portafolio - Iván Agustín Ogñenovich",
+  "callout": "Grabación, mezcla y masterización de audio · Edición de video · Contenido largo y corto",
+  "labels": {
+    "role": "Rol",
+    "link": "Enlace",
+    "notes": "Notas"
+  },
+  "about": {
+    "heading": "Acerca de",
+    "paragraphs": [
+      "Editor audiovisual especializado en contenido para YouTube, podcasts y formatos cortos (Shorts/Reels).",
+      "Combino calidad de audio profesional con narrativa visual dinámica para crear contenido de alta retención."
+    ]
+  },
+  "featured": {
+    "heading": "Trabajos destacados",
+    "groups": [
+      {
+        "heading": "Edición de video",
+        "projects": [
+          {
+            "title": "Videoclip musical",
+            "role": "Editor de video",
+            "link": "https://www.youtube.com/watch?v=tlnSsLDUTNA",
+            "notes": "Los créditos figuran en la descripción del video."
+          },
+          {
+            "title": "Video de YouTube",
+            "role": "Edición de video (y también hice la música de introducción)",
+            "link": "https://www.youtube.com/watch?v=Bc8F1s8ljI8"
+          },
+          {
+            "title": "Shorts de YouTube",
+            "role": "Edición de video",
+            "link": "https://www.youtube.com/c/JulianaWilson/shorts"
+          }
+        ]
+      },
+      {
+        "heading": "Grabación y mezcla de audio",
+        "projects": [
+          {
+            "title": "Videoclip musical",
+            "role": "Grabación y mezcla de audio",
+            "link": "https://www.youtube.com/watch?v=aXAocqfFWgs",
+            "notes": "Los créditos figuran en la descripción del video."
+          }
+        ]
+      }
+    ]
+  },
+  "services": {
+    "heading": "Servicios",
+    "items": [
+      "Edición de video (cortes, ritmo, subtítulos y adaptación de formatos)",
+      "YouTube Shorts / Reels / TikTok (vertical 9:16)",
+      "Grabación, mezcla y masterización de audio"
+    ]
+  },
+  "tools": {
+    "heading": "Herramientas",
+    "items": [
+      "Adobe (Premiere Pro, Photoshop, After Effects), REAPER, entre otras."
+    ]
+  }
+}
